@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6jJDGF5IKR4CQmfgVsHdhr4FomoW+JQaf3XD4WdJCU/3q8k9nU5+kINfGNSSWwxSu7KcnrENrSA+wxu0fTwAfg==",
+  "success": true,
+  "projectFilePath": "/Users/ariel.mimura/Documents/PracticeCoding/TextVault/TextVault.csproj",
+  "expectedPackageFiles": [
+    "/Users/ariel.mimura/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
