@@ -1,2 +1,8 @@
-{"username":"das","password":"dasd"}
-{"username":"sadas","password":"das"};
+{
+    "person": [
+        {
+            "username": "chock",
+            "password": "lionking"
+        }
+    ]
+}

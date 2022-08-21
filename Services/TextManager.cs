@@ -1,4 +1,9 @@
-using System.Text.RegularExpressions;
+/* 
+    This class is only used for reading and writing for a text file. 
+    It is never used in this application and was only included for reference.
+    All user inputs are now saved in a Json file.
+*/
+
 namespace TextVault.Services
 {
     public class TextHandler
@@ -10,7 +15,7 @@ namespace TextVault.Services
             string randomID = GenerateID();
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
-            // Create a file to write to.
+            // Create a text file to write to.
             string toSave = $"ID: {randomID},Username: {username},Password: {passwordHash},Website: {website},URL: {url},-----,\n";
             File.AppendAllText(filePath, toSave);
         }

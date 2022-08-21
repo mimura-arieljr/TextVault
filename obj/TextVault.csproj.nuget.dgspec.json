@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ariel.mimura/Documents/PracticeCoding/TextVault/TextVault.csproj": {}
+    "/Users/ariel.mimura/Documents/GitHub/TextVault/TextVault.csproj": {}
   },
   "projects": {
-    "/Users/ariel.mimura/Documents/PracticeCoding/TextVault/TextVault.csproj": {
+    "/Users/ariel.mimura/Documents/GitHub/TextVault/TextVault.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ariel.mimura/Documents/PracticeCoding/TextVault/TextVault.csproj",
+        "projectUniqueName": "/Users/ariel.mimura/Documents/GitHub/TextVault/TextVault.csproj",
         "projectName": "TextVault",
-        "projectPath": "/Users/ariel.mimura/Documents/PracticeCoding/TextVault/TextVault.csproj",
+        "projectPath": "/Users/ariel.mimura/Documents/GitHub/TextVault/TextVault.csproj",
         "packagesPath": "/Users/ariel.mimura/.nuget/packages/",
-        "outputPath": "/Users/ariel.mimura/Documents/PracticeCoding/TextVault/obj/",
+        "outputPath": "/Users/ariel.mimura/Documents/GitHub/TextVault/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ariel.mimura/.nuget/NuGet/NuGet.Config"
@@ -41,6 +41,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
