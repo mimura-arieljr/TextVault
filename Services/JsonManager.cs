@@ -82,13 +82,13 @@ namespace TextVault.Services
 
     public class SavedText
     {
-        public string username { get; set; }
-        public string password { get; set; }
-        public string website { get; set; }
-        public string url { get; set; }
+        public string username;
+        public string password;
+        public string website;
+        public string url;
     }
     public class RootObject
     {
-        public List<SavedText> texts { get; set; }
+        public List<SavedText> texts;
     }
 }
