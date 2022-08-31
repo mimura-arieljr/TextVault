@@ -23,7 +23,8 @@ namespace TextVault.Services
             {
                 // Opens the json file and stores json string contents to reader.
                 StreamReader reader = new StreamReader (filePathJson);
-                string serializedJsonResult = reader.ReadToEnd();                
+                string serializedJsonResult = reader.ReadToEnd();
+                reader.Close();              
                 // Deserializes json string to object.
                 RootObject appendOnList = JsonConvert.DeserializeObject<RootObject>(serializedJsonResult);
                 appendOnList.texts.Add(new SavedText { username = username, password = password, website = website, url = url });
@@ -47,6 +48,7 @@ namespace TextVault.Services
                     foreach (var item in listOfText.texts)
                     {
                         Console.WriteLine($"--------\nUsername: {item.username} \nPassword: {item.password} \nWebsite: {item.website} \nURL: {item.url} \n ");
+                        sr.Close();
                     }
                 }
             }
@@ -61,6 +63,7 @@ namespace TextVault.Services
             using (var sr = new StreamReader(filePathJson))
             {
                 var serializedJson = sr.ReadToEnd();
+                sr.Close();
                 RootObject listOfText = JsonConvert.DeserializeObject<RootObject>(serializedJson);
                 SavedText itemToRemove = null;
                 foreach(var item in listOfText.texts)
