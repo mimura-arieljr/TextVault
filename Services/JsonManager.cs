@@ -8,10 +8,11 @@ namespace TextVault.Services
         RootObject rootObject = new RootObject();
         public void SaveJsonText(string username, string password, string website, string url)
         {
+            string uniqueID = GenerateID();
             if (!File.Exists(filePathJson))
             {
                 rootObject.texts = new List<SavedText>{
-                new SavedText {username = username, password = password, website = website, url = url}};
+                new SavedText {uniqueID = uniqueID, username = username, password = password, website = website, url = url}};
                 string serializedJsonResult = JsonConvert.SerializeObject(rootObject);
                 using (var st = new StreamWriter(filePathJson))
                 {
@@ -27,7 +28,7 @@ namespace TextVault.Services
                 reader.Close();              
                 // Deserializes json string to object.
                 RootObject appendOnList = JsonConvert.DeserializeObject<RootObject>(serializedJsonResult);
-                appendOnList.texts.Add(new SavedText { username = username, password = password, website = website, url = url });
+                appendOnList.texts.Add(new SavedText {uniqueID = uniqueID, username = username, password = password, website = website, url = url });
                 string serializedJsonAppended = JsonConvert.SerializeObject(appendOnList);
                 using (var st = new StreamWriter(filePathJson))
                 {
@@ -47,7 +48,7 @@ namespace TextVault.Services
                     RootObject listOfText = JsonConvert.DeserializeObject<RootObject>(serializedJson);
                     foreach (var item in listOfText.texts)
                     {
-                        Console.WriteLine($"--------\nUsername: {item.username} \nPassword: {item.password} \nWebsite: {item.website} \nURL: {item.url} \n ");
+                        Console.WriteLine($"--------\nID: {item.uniqueID} \nUsername: {item.username} \nPassword: {item.password} \nWebsite: {item.website} \nURL: {item.url} \n ");
                         sr.Close();
                     }
                 }
@@ -58,7 +59,7 @@ namespace TextVault.Services
             }
         }
 
-        public void DeleteJsonText(string username)
+        public void DeleteJsonText(string ID)
         {
             using (var sr = new StreamReader(filePathJson))
             {
@@ -68,7 +69,7 @@ namespace TextVault.Services
                 SavedText itemToRemove = null;
                 foreach(var item in listOfText.texts)
                 {
-                    if(item.username == username)
+                    if(item.uniqueID == ID)
                     {itemToRemove = item;}
                 }
                 listOfText.texts.Remove(itemToRemove);
@@ -81,10 +82,17 @@ namespace TextVault.Services
                 }   
             }
         }
+
+        // Generates a random ID limited to length of 5
+        public string GenerateID()
+        {
+            return Guid.NewGuid().ToString("N").Substring(0, 5);
+        }
     }
 
     public class SavedText
     {
+        public string uniqueID;
         public string username;
         public string password;
         public string website;

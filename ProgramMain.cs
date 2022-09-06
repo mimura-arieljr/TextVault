@@ -51,7 +51,7 @@ public class TextVaultMain
                     if (answer1.Equals("3"))
                     {
                         Console.Clear();
-                        Console.WriteLine("\nPlease type in the text username: ");
+                        Console.WriteLine("\nPlease type in the text ID: ");
                         string id = Console.ReadLine()!;
                         if (id != String.Empty)
                         {
